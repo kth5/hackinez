@@ -1,0 +1,8 @@
+* mkdir /etc/nginx/lua
+* cp *.lua /etc/nginx/lua/
+* mkdir /etc/nginx/lua/templates
+* cp ddos_js.html /etc/nginx/lua/templates/
+* install memcached (127.0.0.1:11211)
+* add contents of site.conf to your vhost
+* ddos_manage.sh enable (run again to change hash)
+* ddos_manage.sh disable
