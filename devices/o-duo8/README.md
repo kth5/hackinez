@@ -31,21 +31,21 @@ power management:
 major minor  #blocks  name   win-mounts
 
 60416000 sda
-  262144 sda1 (log?)
+  262144 sda1 (log? ext4)
    32768 sda2
   131072 sda3
-   65536 sda4 (Windows BOOT)
+   65536 sda4 (Windows BOOT vfat)
    32768 sda5
    16384 sda6 (Android bootimg [1])
    16384 sda7 (Android bootimg [1] backup?)
     1024 sda8
     1024 sda9
     8192 sda10
-  917504 sda11
+  917504 sda11 (Backup ext4)
  2097152 sda12
 16777216 sda13 (Android rootfs?)
   131072 sda14
-39462912 sda15 (Windows C:\)
+39462912 sda15 (Windows C:\ ntfs)
   460800 sdb   (MicroSD slot)
 ```
 
