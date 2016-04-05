@@ -62,7 +62,7 @@ KBytes   dev  (desc)
     1024 sda9
     8192 sda10
   917504 sda11 (Backup ext4)
- 2097152 sda12
+ 2097152 sda12 (Android Apps ext4)
 16777216 sda13 (Android rootfs?)
   131072 sda14
 39462912 sda15 (Windows C:\ ntfs)
