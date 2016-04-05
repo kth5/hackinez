@@ -43,9 +43,6 @@ power management:
 
 Realtek RTL8723BS LAN 802.11n SDIO 2.4Ghz only
 
-Interesting reads:
-http://ubuntuforums.org/showthread.php?t=2249936
-
 ## Partition table:
 ```
 KBytes   dev  (desc)
@@ -70,3 +67,8 @@ KBytes   dev  (desc)
 ```
 
 [1] Android bootimg, kernel (0x10008000), ramdisk (0x11000000), page size: 2048, cmdline (console=ttyS0,115200 console=logk0 earlyprintk=nologger ptrace.)
+
+
+## Interesting reads:
+http://ubuntuforums.org/showthread.php?t=2249936
+http://watchmysys.com/blog/2015/12/arch-linux-and-sdio-wifi-on-a-bay-trail-tablet/
