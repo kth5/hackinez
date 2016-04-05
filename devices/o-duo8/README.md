@@ -1,12 +1,11 @@
-O+Duo 8" 
+## O+Duo 8" 
 
+```
 dual-OS tablet
-
 1280x800 IPS diplay
-
 64GB Storage
-
 Micro-SD
+```
 
 Goal is to install a regular GNU/Linux distro on this thing potentially hijacking the bootprocess for the Android already installed.
 
