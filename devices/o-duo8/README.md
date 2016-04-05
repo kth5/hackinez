@@ -32,7 +32,7 @@ Realtek RTL8723BS LAN 802.11n SDIO 2.4Ghz only
 
 ## Partition table:
 ```
-major minor  #blocks  name   win-mounts
+KBytes   dev  (desc)
 
 60416000 sda
   262144 sda1 (log? ext4)
