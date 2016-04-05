@@ -1,7 +1,7 @@
 Seems to use InsydeQ2S for OS switching, hints at EFI firmware/bootloader. Yet to be confirmed:
 
-CPU is a quad-core:
-
+## CPU is a quad-core:
+```
 vendor_id	: GenuineIntel
 cpu family	: 6
 model		: 55
@@ -24,8 +24,10 @@ clflush size	: 64
 cache_alignment	: 64
 address sizes	: 36 bits physical, 48 bits virtual
 power management:
+```
 
-
+## Partition table:
+```
 major minor  #blocks  name   win-mounts
 
 60416000 sda
@@ -45,6 +47,6 @@ major minor  #blocks  name   win-mounts
   131072 sda14
 39462912 sda15 (Windows C:\)
   460800 sdb   (MicroSD slot)
-
+```
 
 [1] Android bootimg, kernel (0x10008000), ramdisk (0x11000000), page size: 2048, cmdline (console=ttyS0,115200 console=logk0 earlyprintk=nologger ptrace.)
