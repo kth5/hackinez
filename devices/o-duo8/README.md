@@ -36,8 +36,8 @@ KBytes   dev  (desc)
 
 60416000 sda
   262144 sda1 (log? ext4)
-   32768 sda2
-  131072 sda3
+   32768 sda2 (data; L10N & animations?) 
+  131072 sda3 (? ext4)
    65536 sda4 (Windows BOOT vfat)
    32768 sda5
    16384 sda6 (Android bootimg [1])
