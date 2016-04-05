@@ -26,6 +26,10 @@ address sizes	: 36 bits physical, 48 bits virtual
 power management:
 ```
 
+## Wifi Chipset
+
+Realtek RTL8723BS LAN 802.11n SDIO 2.4Ghz only
+
 ## Partition table:
 ```
 major minor  #blocks  name   win-mounts
