@@ -1,4 +1,13 @@
-Seems to use InsydeQ2S for OS switching, hints at EFI firmware/bootloader. Yet to be confirmed:
+O+Duo 8" dual-OS tablet
+1280x800 IPS diplay
+64GB Storage
+Micro-SD
+
+Goal is to install a regular GNU/Linux distro on this thing potentially hijacking the bootprocess for the Android already installed.
+
+## Bootloader
+
+Seems to use InsydeQ2S for OS switching, hints at EFI firmware/bootloader. Yet to be confirmed.
 
 ## CPU is a quad-core:
 ```
@@ -29,6 +38,9 @@ power management:
 ## Wifi Chipset
 
 Realtek RTL8723BS LAN 802.11n SDIO 2.4Ghz only
+
+Interesting reads:
+http://ubuntuforums.org/showthread.php?t=2249936
 
 ## Partition table:
 ```
