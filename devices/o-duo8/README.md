@@ -34,7 +34,7 @@ major minor  #blocks  name   win-mounts
   262144 sda1 (log?)
    32768 sda2
   131072 sda3
-   65536 sda4 (Windows EFI)
+   65536 sda4 (Windows BOOT)
    32768 sda5
    16384 sda6 (Android bootimg [1])
    16384 sda7 (Android bootimg [1] backup?)
