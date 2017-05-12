@@ -1,0 +1,31 @@
+diff --git a/algo/hodl/hodl.cpp b/algo/hodl/hodl.cpp
+index 0399b35..eec3f83 100644
+--- a/algo/hodl/hodl.cpp
++++ b/algo/hodl/hodl.cpp
+@@ -93,8 +93,9 @@ int scanhash_hodl( int threadNumber, struct work* work, uint32_t max_nonce,
+ //                int searchNumber=comparisonSize/totalThreads;
+                 int searchNumber = comparisonSize / opt_n_threads;
+                 int startLoc=threadNumber*searchNumber;
+-		EVP_CIPHER_CTX ctx;
+-                  for(int32_t k = startLoc;k<startLoc+searchNumber && !work_restart[threadNumber].restart;k++){
++		EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
++		if (!ctx) return false;
++                for(int32_t k = startLoc;k<startLoc+searchNumber && !work_restart[threadNumber].restart;k++){
+                     //copy data to first l2 cache
+                     memcpy((char*)&cacheMemoryOperatingData[0], (char*)&mainMemoryPsuedoRandomData[k*cacheMemorySize], cacheMemorySize);
+                     for(int j=0;j<AES_ITERATIONS;j++){
+@@ -107,10 +108,10 @@ int scanhash_hodl( int threadNumber, struct work* work, uint32_t max_nonce,
+                             cacheMemoryOperatingData322[i] = cacheMemoryOperatingData32[i] ^ cacheMemoryOperatingData322[i];
+                         memcpy(key,(unsigned char*)&cacheMemoryOperatingData2[cacheMemorySize-32],32);
+                         memcpy(iv,(unsigned char*)&cacheMemoryOperatingData2[cacheMemorySize-AES_BLOCK_SIZE],AES_BLOCK_SIZE);
+-                        EVP_EncryptInit(&ctx, EVP_aes_256_cbc(), key, iv);
+-                        EVP_EncryptUpdate(&ctx, cacheMemoryOperatingData, &outlen1, cacheMemoryOperatingData2, cacheMemorySize);
+-                        EVP_EncryptFinal(&ctx, cacheMemoryOperatingData + outlen1, &outlen2);
+-                        EVP_CIPHER_CTX_cleanup(&ctx);
++                        EVP_EncryptInit(ctx, EVP_aes_256_cbc(), key, iv);
++                        EVP_EncryptUpdate(ctx, cacheMemoryOperatingData, &outlen1, cacheMemoryOperatingData2, cacheMemorySize);
++                        EVP_EncryptFinal(ctx, cacheMemoryOperatingData + outlen1, &outlen2);
++                        EVP_CIPHER_CTX_cleanup(ctx);
+                     }
+                     //use last X bits as solution
+                     uint32_t solution=cacheMemoryOperatingData32[(cacheMemorySize/4)-1]%comparisonSize;
