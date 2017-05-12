@@ -1,0 +1,26 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
+pkgname=xmr-stak-nvidia
+pkgver=1.4.0
+pkgrel=1
+_commit=915ed8545334ff6acc618e748720492563b18962
+pkgdesc="Cryptonight Nvidia GPU miner"
+arch=(x86_64)
+url="https://github.com/fireice-uk/xmr-stak-nvidia"
+license=('GPL')
+depends=('libmicrohttpd' 'opencl-nvidia')
+makedepends=('cmake' 'cuda')
+source=("git+https://github.com/fireice-uk/xmr-stak-nvidia.git#commit=${_commit}")
+md5sums=('SKIP')
+_gitname=yaourt
+
+build() {
+	cd ${pkgname}
+	CC=gcc-5 CXX=g++-5 cmake .
+	make
+}
+
+package() {
+	cd ${pkgname}
+	install -D -m755 bin/xmr-stak-nvidia ${pkgdir}/usr/bin/xmr-stak-nvidia
+	install -D -m644 config.txt ${pkgdir}/usr/share/${pkgname}/config.txt.example
+}

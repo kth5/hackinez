@@ -1,0 +1,26 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
+pkgname=xmr-stak-cpu
+pkgver=1.4.1
+pkgrel=1
+_commit=d0f991c81a76897918e375a1f423750cb5f14d32
+pkgdesc="Cryptonight CPU miner"
+arch=(x86_64)
+url="https://github.com/fireice-uk/xmr-stak-cpu"
+license=('GPL')
+depends=('libmicrohttpd')
+makedepends=('cmake')
+source=("git+https://github.com/fireice-uk/xmr-stak-cpu.git#commit=${_commit}")
+md5sums=('SKIP')
+_gitname=yaourt
+
+build() {
+	cd ${pkgname}
+	cmake .
+	make
+}
+
+package() {
+	cd ${pkgname}
+	install -D -m755 bin/xmr-stak-cpu ${pkgdir}/usr/bin/xmr-stak-cpu
+	install -D -m644 config.txt ${pkgdir}/usr/share/${pkgname}/config.txt.example
+}
