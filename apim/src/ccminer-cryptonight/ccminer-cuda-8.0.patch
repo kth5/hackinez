@@ -1,0 +1,22 @@
+diff --git a/cpu-miner.c b/cpu-miner.c
+index 789dc36..6f1225c 100755
+--- a/cpu-miner.c
++++ b/cpu-miner.c
+@@ -335,8 +335,6 @@ static pthread_mutex_t g_work_lock;
+ 
+ static bool rpc2_login(CURL *curl);
+ 
+-void cuda_devicereset(int threads);
+-
+ void proper_exit(int exitcode)
+ {
+ 	pthread_mutex_lock(&g_work_lock);	//freeze stratum
+@@ -353,7 +351,7 @@ void proper_exit(int exitcode)
+ 		}
+ 	} while(!everything_stopped);
+ 	applog(LOG_INFO, "resetting GPUs");
+-	cuda_devicereset(opt_n_threads);
++	cudaDeviceReset();
+ 
+ 	curl_global_cleanup();
+ 
