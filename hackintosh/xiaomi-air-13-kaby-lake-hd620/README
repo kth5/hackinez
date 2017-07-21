@@ -19,6 +19,7 @@ What works:
 What doesn't work:
 	- Nvidia GPU (optimus so no dice)
 	- Wifi (intel chipset)
+	- Fingerprint sensor (haven't bothered)
 
 Folders:
 	- ./EFI => An overlay for an existing CLOVER install
