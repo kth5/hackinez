@@ -221,99 +221,99 @@
 	<dict>
 		<key>AddProperties</key>
 		<array>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL,GfxYTile</string>
-			    <key>Value</key>
-			    <data>
-			    AQAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL00,PanelPowerOn</string>
-			    <key>Value</key>
-			    <data>
-			    GQEAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>hda-gfx</string>
-			    <key>Value</key>
-			    <string>onboard-1</string>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL00,PanelPowerUp</string>
-			    <key>Value</key>
-			    <data>
-			    MAAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL00,PanelCycleDelay</string>
-			    <key>Value</key>
-			    <data>
-			    +gAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL00,PanelPowerDown</string>
-			    <key>Value</key>
-			    <data>
-			    PAAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL,Gfx324</string>
-			    <key>Value</key>
-			    <data>
-			    AQAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>AAPL00,PanelPowerOff</string>
-			    <key>Value</key>
-			    <data>
-			    EQAAAA==
-			    </data>
-			</dict>
-			<dict>
-			    <key>Device</key>
-			    <string>IntelGFX</string>
-			    <key>Key</key>
-			    <string>graphic-options</string>
-			    <key>Value</key>
-			    <data>
-			    DAAAAA==
-			    </data>
-			</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL,GfxYTile</string>
+    <key>Value</key>
+    <data>
+    AQAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL00,PanelPowerOn</string>
+    <key>Value</key>
+    <data>
+    GQEAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>hda-gfx</string>
+    <key>Value</key>
+    <string>onboard-1</string>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL00,PanelPowerUp</string>
+    <key>Value</key>
+    <data>
+    MAAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL00,PanelCycleDelay</string>
+    <key>Value</key>
+    <data>
+    +gAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL00,PanelPowerDown</string>
+    <key>Value</key>
+    <data>
+    PAAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL,Gfx324</string>
+    <key>Value</key>
+    <data>
+    AQAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>AAPL00,PanelPowerOff</string>
+    <key>Value</key>
+    <data>
+    EQAAAA==
+    </data>
+</dict>
+<dict>
+    <key>Device</key>
+    <string>IntelGFX</string>
+    <key>Key</key>
+    <string>graphic-options</string>
+    <key>Value</key>
+    <data>
+    DAAAAA==
+    </data>
+</dict>
 		</array>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>1</string>
+			<string>3</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -342,7 +342,7 @@
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -410,18 +410,18 @@
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
-            <dict>
-                <key>Comment</key>
-                <string>0x19160000/etc, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
-                <key>Disabled</key>
-                <false/>
-                <key>Name</key>
-                <string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-                <key>Find</key>
-                <data>AAAgAgAAUAE=</data>
-                <key>Replace</key>
-                <data>AAAwAQAAkAA=</data>
-            </dict>
+                        <dict>
+                                <key>Comment</key>
+                                <string>0x19160000/etc, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
+                                <key>Disabled</key>
+                                <false/>
+                                <key>Name</key>
+                                <string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+                                <key>Find</key>
+                                <data>AAAgAgAAUAE=</data>
+                                <key>Replace</key>
+                                <data>AAAwAQAAkAA=</data>
+                        </dict>
 			<dict>
 				<key>Comment</key>
 				<string>External icons patch</string>
@@ -437,23 +437,91 @@
 				</data>
 			</dict>
 			<dict>
-                <key>Comment</key>
-                <string>Enable TRIM for SSD</string>
-                <key>Disabled</key>
-                <false/>
-                <key>Find</key>
-                <data>
-                AEFQUExFIFNTRAA=
-                </data>
-                <key>MatchOS</key>
-                <string>10.12.x</string>
-                <key>Name</key>
-                <string>com.apple.iokit.IOAHCIBlockStorage</string>
-                <key>Replace</key>
-                <data>
-                AAAAAAAAAAAAAAA=
-                </data>
-            </dict>
+                                <key>Comment</key>
+                                <string>Enable TRIM for SSD</string>
+                                <key>Disabled</key>
+                                <false/>
+                                <key>Find</key>
+                                <data>
+                                AEFQUExFIFNTRAA=
+                                </data>
+                                <key>MatchOS</key>
+                                <string>10.12.x</string>
+                                <key>Name</key>
+                                <string>com.apple.iokit.IOAHCIBlockStorage</string>
+                                <key>Replace</key>
+                                <data>
+                                AAAAAAAAAAAAAAA=
+                                </data>
+                        </dict>
+                        <dict>
+                                <key>Comment</key>
+                                <string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
+                                <key>Disabled</key>
+                                <false/>
+                                <key>Name</key>
+                                <string>com.apple.driver.AppleBacklight</string>
+                                <key>Find</key>
+                                <data>RiV1VCUwNHgA</data>
+                                <key>Replace</key>
+                                <data>RiV1VHh4eHgA</data>
+                        </dict>
+			<dict>
+				<key>Comment</key>
+				<string>Zeroing 10ec0261 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				YQLsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Zeroing 10ec0262 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				YgLsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Zeroing 10ec0885 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				hQjsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Patching 11d41984 with 10ec0255 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				hBnUEQ==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				VQLsEA==
+				</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -463,21 +531,47 @@
 		<key>CsrActiveConfig</key>
 		<string>0x3</string>
 	</dict>
-        <key>SMBIOS</key>
-        <dict>
-            <key>ProductName-Comment</key>
-            <string>Using Haswell MacBookAir6,2 until Clover has support for Skylake identifiers</string>
-            <key>ProductName</key>
-            <string>MacBookAir6,2</string>
-            <key>Trust</key>
-            <true/>
+	<key>SMBIOS</key>
+	<dict>
+                <key>BiosReleaseDate</key>
+                <string>10/12/2016</string>
+                <key>BiosVendor</key>
+                <string>Apple Inc.</string>
+                <key>BiosVersion</key>
+                <string>MBP131.88Z.0205.B02.1610121536</string>
+                <key>BoardManufacturer</key>
+                <string>Apple Inc.</string>
+		<key>Board-ID</key>
+		<string>Mac-473D31EABEB93F9B</string>
+                <key>BoardType</key>
+                <integer>10</integer>
+                <key>BoardVersion</key>
+                <string>MacBookPro13,1</string>
+                <key>ChassisAssetTag</key>
+                <string>iMac-Aluminum</string>
+                <key>ChassisManufacturer</key>
+                <string>Apple Inc.</string>
+                <key>ChassisType</key>
+                <string>0x13</string>
+                <key>Family</key>
+                <string>MacBook Pro</string>
+                <key>Manufacturer</key>
+                <string>Apple Inc.</string>
+                <key>ProductName</key>
+                <string>MacBookPro13,1</string>
+                <key>Trust</key>
+                <false/>
+                <key>Version</key>
+                <string>1.0</string>
         </dict>
         <key>SystemParameters</key>
         <dict>
-            <key>BacklightLevel</key>
-            <integer>0</integer>
-            <key>InjectKexts</key>
-            <string>Detect</string>
+                <key>CustomUUID</key>
+                <string></string>
+                <key>InjectKexts</key>
+                <string>Yes</string>
+                <key>InjectSystemID</key>
+                <true/>
         </dict>
 </dict>
 </plist>

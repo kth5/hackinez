@@ -1,0 +1,25 @@
+This is an after installation  pack for the second generation Xiaomi MiBook Air 13".
+
+My exact specs for this config were:
+
+	CPU: Intel i5-7200
+	GPU: Intel HD620 / Nvidia MX150
+	RAM: 8GB DDR4
+	SSD: 128GB SATA3
+
+This may or may not work on other models.
+
+What works:
+	- QE/CI for HD620
+	- Audio
+	- Touchpad
+	- Backlight/Volume via hotkeys
+	- Bluetooth
+
+What doesn't work:
+	- Nvidia GPU (optimus so no dice)
+	- Wifi (intel chipset)
+
+Folders:
+	- ./EFI => An overlay for an existing CLOVER install
+	- ./Library => All Kexts you will need to put into /Library/Extensions after completing the installation.
