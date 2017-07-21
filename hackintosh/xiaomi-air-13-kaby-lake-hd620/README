@@ -15,6 +15,7 @@ What works:
 	- Touchpad
 	- Backlight/Volume via hotkeys
 	- Sensors (CPU, HDD, S.M.A.R.T etc)
+	- Camera
 	- Bluetooth (but untested)
 
 What doesn't work:
