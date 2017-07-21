@@ -27,3 +27,4 @@ What doesn't work:
 Folders:
 	- ./EFI => An overlay for an existing CLOVER install
 	- ./Library => All Kexts you will need to put into /Library/Extensions after completing the installation.
+	- ./Info => Various potentially useful information
