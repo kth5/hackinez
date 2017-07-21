@@ -14,7 +14,8 @@ What works:
 	- Audio
 	- Touchpad
 	- Backlight/Volume via hotkeys
-	- Bluetooth
+	- Sensors (CPU, HDD, S.M.A.R.T etc)
+	- Bluetooth (but untested)
 
 What doesn't work:
 	- Nvidia GPU (optimus so no dice)
