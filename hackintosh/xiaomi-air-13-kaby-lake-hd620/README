@@ -14,7 +14,7 @@ What works:
 	- QE/CI for HD620
 	- Audio
 	- Touchpad (basic functionality only)
-	- Backlight/Volume via hotkeys
+	- Backlight/Volume via hotkeys (only with SmartTouchpad kext disabled)
 	- Sensors (CPU, HDD, S.M.A.R.T etc)
 	- Camera
 	- Bluetooth (but untested)
