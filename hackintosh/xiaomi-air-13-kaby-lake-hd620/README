@@ -13,7 +13,7 @@ This may or may not work on other models.
 What works:
 	- QE/CI for HD620
 	- Audio
-	- Touchpad (basic functionality only)
+	- Touchpad (basic functionality only, unless SmartTouchpad kext used)
 	- Backlight/Volume via hotkeys (only with SmartTouchpad kext disabled)
 	- Sensors (CPU, HDD, S.M.A.R.T etc)
 	- Camera
