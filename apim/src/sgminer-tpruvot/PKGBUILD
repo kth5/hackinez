@@ -1,0 +1,44 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
+
+# original AUR credits
+# AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
+pkgname=sgminer-tpruvot
+pkgver=r6498.8bf1c180
+pkgrel=1
+pkgdesc="Multiple algorythim miner for Nvidia GPUs"
+arch=('x86_64')
+url="https://github.com/tpruvot/sgminer"
+license=('GPL3')
+depends=('amdgpu-pro-opencl' 'curl' 'jansson' 'gcc6')
+makedepends=('git' 'autoconf')
+options=('!emptydirs')
+_commit=8bf1c1807cca1ca0ec0f87b452e3d1cb395f0b1b
+source=("git+https://github.com/tpruvot/sgminer.git#commit=${_commit}")
+md5sums=('SKIP')
+
+pkgver() {
+	cd sgminer 
+	
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+	cd sgminer
+	git submodule init
+	git submodule update
+	autoreconf -fiv
+}
+
+build() {
+	cd sgminer
+	CC=gcc-6 CXX=g++6 \
+        CPPFLAGS='-I/usr/include/openssl-1.0' \
+        LDFLAGS='-L/usr/lib/openssl-1.0 -L/usr/lib' \
+        ./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib
+	make
+}
+
+package() {
+	cd sgminer
+	install -m755 -D sgminer ${pkgdir}/usr/bin/${pkgname}
+}
