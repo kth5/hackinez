@@ -1,21 +1,28 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak-nvidia
-pkgver=1.4.0
+pkgver=1.5.0
 pkgrel=1
-_commit=915ed8545334ff6acc618e748720492563b18962
+_commit=c565fd986d8ecafc9a6ee51a24389ea70b8fe30f
 pkgdesc="Cryptonight Nvidia GPU miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak-nvidia"
 license=('GPL')
 depends=('libmicrohttpd' 'opencl-nvidia')
 makedepends=('cmake' 'cuda')
-source=("git+https://github.com/fireice-uk/xmr-stak-nvidia.git#commit=${_commit}")
-md5sums=('SKIP')
+source=("git+https://github.com/fireice-uk/xmr-stak-nvidia.git#commit=${_commit}"
+        'xmr-stak-nvidia-disable-compute20.patch')
+md5sums=('SKIP'
+         '6ac73a3e7ff06746184908408f7fed0a')
 _gitname=yaourt
+
+prepare() {
+	cd ${pkgname}
+	patch -Np0 -i ${srcdir}/xmr-stak-nvidia-disable-compute20.patch
+}
 
 build() {
 	cd ${pkgname}
-	CC=gcc-5 CXX=g++-5 cmake .
+	CC=gcc-6 CXX=g++-6 cmake .
 	make
 }
 
