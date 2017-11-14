@@ -1,0 +1,4 @@
+# steps in Celsius by which to tune fanspeed
+FAN_STEP=2
+# target temperatore
+TEMP_TARGET=70
