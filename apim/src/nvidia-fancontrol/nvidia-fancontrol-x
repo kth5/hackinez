@@ -6,11 +6,21 @@ while [ 1 = 1 ]; do
 	curspd=$(nvidia-smi -q | grep GPU.*${PCIID/0:/00.} -A 48 | tail -n1 | awk '{print $4}')
 	curtmp=$(nvidia-smi -q -d temperature | grep -A2 GPU.*${PCIID/0:/00.} | tail -n1 | awk '{print $5}')
 	if [ $curtmp -gt ${TEMP_TARGET} ]; then
-		let newspd="${curspd} + ${FAN_STEP}"
+		if [ ${curspd} -lt 100 ]; then
+			let newspd="${curspd} + ${FAN_STEP}"
+			if [ ${newspd} -gt 100 ]; then
+				warning="Maximum fan speed reached!"
+			fi
+		else
+			newspd=${curspd}
+			warning="Consider checking airflow!"
+		fi
 	else
-		let newspd="${curspd} - ${FAN_STEP}"
+		if [ ${curspd} -gt 0 ]; then
+			let newspd="${curspd} - ${FAN_STEP}"
+		fi
 	fi
-	echo "${PCIID} Curspd: ${curspd} Curtmp: ${curtmp} NewSpd: ${newspd}" >> /var/log/nvidia-fancontrol.log
+	echo "${PCIID} Curspd: ${curspd} Curtmp: ${curtmp} NewSpd: ${newspd} ${warning}" >> /var/log/nvidia-fancontrol.log
 	nvidia-settings -a [gpu:0]/GPUFanControlState=1 -a [fan:0]/GPUTargetFanSpeed=${newspd}
 	sleep 10
 done

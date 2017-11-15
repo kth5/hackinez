@@ -1,6 +1,6 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=nvidia-fancontrol
-pkgver=0.4
+pkgver=0.5
 pkgrel=1
 pkgdesc="Simple Nvidia Fan control script"
 arch=(x86_64)
@@ -12,6 +12,11 @@ source=('nvidia-fancontrol'
         'nvidia-fancontrol.default'
         'dfp-edid.bin'
         'xorg.conf')
+md5sums=('99a2d078145a59e69a34937a7647d047'
+         '97582cf6a7789bd53587b1dd23a757d7'
+         '0367aea08017d96ac1a30721ac7c3bdf'
+         '737a37ad8382bbfde91b5e9e81089a7d'
+         'f51916f26f7d50dd4f84b57f0b83e176')
 
 package() {
 	cd ${srcdir}
@@ -21,9 +26,3 @@ package() {
 	install -m644 ${srcdir}/dfp-edid.bin ${pkgdir}/opt/nvidia-fancontrol/dfp-edid.bin
 	install -m644 ${srcdir}/xorg.conf ${pkgdir}/opt/nvidia-fancontrol/xorg.conf
 }
-
-md5sums=('99a2d078145a59e69a34937a7647d047'
-         '7b145c2568177b09fad44ed8f8f828ac'
-         '0367aea08017d96ac1a30721ac7c3bdf'
-         '737a37ad8382bbfde91b5e9e81089a7d'
-         'f51916f26f7d50dd4f84b57f0b83e176')
