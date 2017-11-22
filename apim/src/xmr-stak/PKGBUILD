@@ -1,0 +1,33 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
+pkgname=xmr-stak
+pkgver=1.5.0
+pkgrel=1
+_commit=79154f76defa627255891888f4dd62453194fc2c
+pkgdesc="Cryptonight All In One miner"
+arch=(x86_64)
+url="https://github.com/fireice-uk/xmr-stak"
+license=('GPL')
+depends=('libmicrohttpd' 'opencl-amd' 'hwloc')
+makedepends=('cmake' 'cuda' 'opencl-headers' 'gcc6')
+source=("git+https://github.com/fireice-uk/xmr-stak.git#commit=${_commit}")
+md5sums=('SKIP')
+_gitname=yaourt
+
+prepare() {
+	cd ${pkgname}
+	sed 's@fDevDonationLevel = 2.0@fDevDonationLevel = 0.0@g' -i xmrstak/donate-level.hpp
+}
+
+build() {
+	cd ${pkgname}
+	CC=gcc-6 CXX=g++-6 cmake .
+	make
+}
+
+package() {
+	cd ${pkgname}
+	install -D -m755 bin/xmr-stak ${pkgdir}/usr/bin/xmr-stak
+	install -D -m644 xmrstak/config.tpl ${pkgdir}/usr/share/${pkgname}/config.txt.example
+	install -D -m755 bin/libxmrstak_cuda_backend.so ${pkgdir}/usr/lib/libxmrstak_cuda_backend.so
+	install -m755 bin/libxmrstak_opencl_backend.so ${pkgdir}/usr/lib/libxmrstak_opencl_backend.so
+}
