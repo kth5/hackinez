@@ -1,0 +1,19 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
+pkgname=dstm-zcash
+pkgver=0.5.4
+pkgrel=1
+pkgdesc="DSTM's Zcash miner for NVIDIA"
+arch=(x86_64)
+license=('GPL')
+depends=('xorg-server' 'xorg-xinit' 'nvidia-settings' 'nvidia-dkms')
+source=('https://github.com/coinfoundry/miners/raw/master/zm_0.5.4.tar.bz2')
+md5sums=('e8ae67d74fb4811522c5717e732b6e14')
+options=(!strip)
+
+package() {
+	cd ${srcdir}/zm_${pkgver}
+	install -D -m644 json-rpc.txt ${pkgdir}/usr/share/${pkgname}/json-rpc.txt.example
+	install -m644 start_btg.sh ${pkgdir}/usr/share/${pkgname}/start_btg.sh
+	install -m644 start_zec.sh ${pkgdir}/usr/share/${pkgname}/start_zec.sh
+	install -D -m755 zm ${pkgdir}/usr/bin/dstm-zcash
+}
