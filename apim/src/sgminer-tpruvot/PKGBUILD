@@ -3,16 +3,16 @@
 # original AUR credits
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=sgminer-tpruvot
-pkgver=r6498.8bf1c180
+pkgver=r6580.9b18c0fc
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/tpruvot/sgminer"
 license=('GPL3')
-depends=('amdgpu-pro-opencl' 'curl' 'jansson' 'gcc6')
-makedepends=('git' 'autoconf')
+depends=('opencl-amd' 'curl' 'jansson')
+makedepends=('git' 'autoconf' 'opencl-headers' 'gcc6')
 options=('!emptydirs')
-_commit=8bf1c1807cca1ca0ec0f87b452e3d1cb395f0b1b
+_commit=9b18c0fc991bb85b92c3cff6e37d91bd1c223880
 source=("git+https://github.com/tpruvot/sgminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
