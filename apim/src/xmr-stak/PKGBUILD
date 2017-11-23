@@ -1,7 +1,7 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
 pkgver=2.0.0
-pkgrel=1
+pkgrel=2
 _commit=79154f76defa627255891888f4dd62453194fc2c
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
@@ -20,7 +20,10 @@ prepare() {
 
 build() {
 	cd ${pkgname}
-	CC=gcc-6 CXX=g++-6 cmake .
+	CC=gcc-6 CXX=g++-6 \
+	cmake .\
+		-DXMR-STAK_COMPILE=generic \
+		-DOpenCL_ENABLE=ON -DCUDA_ENABLE=ON
 	make
 }
 
