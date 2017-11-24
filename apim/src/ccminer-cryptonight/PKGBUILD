@@ -9,8 +9,8 @@ pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/cryptonight/ccminer"
 license=('GPL3')
-depends=('cuda>=9' 'cuda<10' 'curl' 'jansson' 'openssl-1.0')
-makedepends=('git' 'autoconf')
+depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
+makedepends=('git' 'cuda>=9' 'autoconf')
 options=('!emptydirs')
 _commit=888bf4cdeb6e37e88de2c84db5f23854de3c8f79
 source=("git+https://github.com/KlausT/ccminer-cryptonight#commit=${_commit}")

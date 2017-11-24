@@ -9,8 +9,8 @@ pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/neoscrypt/ccminer"
 license=('GPL3')
-depends=('cuda>=9' 'cuda<10' 'curl' 'jansson')
-makedepends=('git' 'autoconf')
+depends=('curl' 'jansson' 'opencl-nvidia')
+makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
 options=('!emptydirs')
 _commit=0c070251f50f68e81532a85d478d64e46c96d59d
 source=("git+https://github.com/ghostlander/ccminer-neoscrypt.git#commit=${_commit}")

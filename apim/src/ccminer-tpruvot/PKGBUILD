@@ -9,8 +9,8 @@ pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/tpruvot/ccminer"
 license=('GPL3')
-depends=('curl' 'jansson')
-makedepends=('git' 'cuda' 'autoconf')
+depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
+makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
 options=('!emptydirs')
 _commit=dfff3b3f9851fb932c86f09732a01c03b69fbad0
 source=("git+https://github.com/tpruvot/ccminer.git#commit=${_commit}"
