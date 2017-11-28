@@ -1,0 +1,46 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
+
+# original AUR credits
+# AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
+pkgname=ccminer-nanashi
+pkgver=r890.8affcb9
+pkgrel=1
+pkgdesc="Multiple algorythim miner for Nvidia GPUs"
+arch=('x86_64')
+url="https://github.com/Nanashi-Meiyo-Meijin/ccminer"
+license=('GPL3')
+depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
+makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
+options=('!emptydirs')
+_commit=8affcb9cd09edd917d33c1ed450f23400f571bdb
+source=("git+https://github.com/Nanashi-Meiyo-Meijin/ccminer.git#commit=${_commit}"
+	ccminer-openssl-1.1-api.patch)
+md5sums=('SKIP'
+	 '97c3594343589d2bee87696fa17505c4')
+
+pkgver() {
+	cd ccminer
+	
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+	cd ccminer
+	patch -Np1 -i ${srcdir}/ccminer-openssl-1.1-api.patch
+	autoreconf -fiv
+}
+
+build() {
+	cd ccminer
+        PATH=/opt/cuda/bin:$PATH
+        CFLAGS="-O3 -std=c++11" \
+        CPPFLAGS='-I/usr/include/openssl-1.0' \
+        LDFLAGS='-L/usr/lib/openssl-1.0 -L/usr/lib' \
+        ./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --with-cuda=/opt/cuda
+	make
+}
+
+package() {
+	cd ccminer
+	install -m755 -D ccminer ${pkgdir}/usr/bin/${pkgname}
+}
