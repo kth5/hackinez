@@ -1,43 +1,38 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
-
-# original AUR credits
-# AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-neoscrypt
-pkgver=r1208.0c07025
+pkgver=r1322.7353240
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
-url="https://github.com/neoscrypt/ccminer"
+url="https://github.com/KlausT/ccminer"
 license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia')
-makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
+makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2')
 options=('!emptydirs')
-_commit=0c070251f50f68e81532a85d478d64e46c96d59d
-source=("git+https://github.com/ghostlander/ccminer-neoscrypt.git#commit=${_commit}")
+_commit=73532402987916e4f8fa58e44ef8154b15f1919f
+source=("git+https://github.com/KlausT/ccminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
 pkgver() {
-	cd ${pkgname}
+	cd ccminer 
 	
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-	cd ${pkgname}
+	cd ccminer
 	autoreconf -fiv
 }
 
 build() {
-	cd ${pkgname}
-	PATH=/opt/cuda/bin:$PATH
-	CFLAGS="-O3 -std=c++11" \
-	CPPFLAGS='-I/usr/include/openssl-1.0' \
+	cd ccminer
+	CXXFLAGS="${CXXFLAGS} -std=c++11 -I/usr/include/openssl-1.0" \
         LDFLAGS='-L/usr/lib/openssl-1.0 -L/usr/lib' \
 	./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --with-cuda=/opt/cuda
 	make
 }
 
 package() {
-	cd ${pkgname}
+	cd ccminer
 	install -m755 -D ccminer ${pkgdir}/usr/bin/ccminer-neoscrypt
 }
