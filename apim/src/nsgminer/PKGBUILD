@@ -1,0 +1,44 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
+pkgname=nsgminer
+pkgver=r5929.eb4da86c
+pkgrel=1
+pkgdesc="Neoscrypt miner for GPUs"
+arch=('x86_64')
+url="https://github.com/ghostlander/nsgminer"
+license=('GPL3')
+depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
+makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
+options=('!emptydirs')
+_commit=eb4da86c0f2a7b2549afdcbf3eaa35e30af22e5f
+source=("git+https://github.com/ghostlander/nsgminer.git#commit=${_commit}")
+md5sums=('SKIP')
+
+pkgver() {
+	cd nsgminer
+	
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+	cd nsgminer
+	autoreconf -fiv
+}
+
+build() {
+	cd nsgminer
+        PATH=/opt/cuda/bin:$PATH
+        CFLAGS="-O3 -std=c++11" \
+        ./configure --prefix=/usr \
+			--sysconfdir=/etc \
+			--libdir=/usr/lib \
+			--with-cuda=/opt/cuda \
+			--disable-cpumining \
+			--enable-opencl \
+			--enable-nvml
+	make
+}
+
+package() {
+	cd nsgminer
+	install -m755 -D nsgminer ${pkgdir}/usr/bin/${pkgname}
+}
