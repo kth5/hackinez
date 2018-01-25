@@ -1,15 +1,15 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=ccminer-neoscrypt
-pkgver=r1322.7353240
+pkgver=r1361.ade97fa
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/KlausT/ccminer"
 license=('GPL3')
-depends=('curl' 'jansson' 'opencl-nvidia')
-makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2')
+depends=('curl' 'jansson' 'opencl-nvidia' 'gcc6-libs')
+makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2' 'gcc6')
 options=('!emptydirs')
-_commit=73532402987916e4f8fa58e44ef8154b15f1919f
+_commit=ade97fa00e42cef69597b80977f933855428dd13
 source=("git+https://github.com/KlausT/ccminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
@@ -26,8 +26,7 @@ prepare() {
 
 build() {
 	cd ccminer
-	CXXFLAGS="${CXXFLAGS} -std=c++11 -I/usr/include/openssl-1.0" \
-        LDFLAGS='-L/usr/lib/openssl-1.0 -L/usr/lib' \
+	CC=gcc-6 CXX=g++-6 \
 	./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --with-cuda=/opt/cuda
 	make
 }
