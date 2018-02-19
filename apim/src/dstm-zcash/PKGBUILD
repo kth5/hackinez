@@ -1,13 +1,13 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=dstm-zcash
-pkgver=0.5.8
+pkgver=0.6
 pkgrel=1
 pkgdesc="DSTM's Zcash miner for NVIDIA"
 arch=(x86_64)
 license=('GPL')
 depends=('xorg-server' 'xorg-xinit' 'nvidia-settings' 'nvidia-dkms')
 source=("https://github.com/coinfoundry/miners/raw/master/zm_${pkgver}.tar.gz")
-md5sums=('1ede7dd3fda60a78f514ee770158f48c')
+md5sums=('bf09545a99a503ba61038322154f4a54')
 options=(!strip)
 
 package() {
