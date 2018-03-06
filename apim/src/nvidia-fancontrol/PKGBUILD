@@ -1,20 +1,17 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
-pkgname=nvidia-fancontrol
+pkgname=nvidia-fan-control
 pkgver=0.5
 pkgrel=1
 pkgdesc="Simple Nvidia Fan control script"
 arch=(x86_64)
 url="https://github.com/kth5/nvidia-fancontrol.git"
 license=('GPL')
-depends=('xorg-server' 'xorg-xinit' 'nvidia-settings' 'nvidia-dkms')
-source=('git+https://github.com/kth5/nvidia-fancontrol.git')
+depends=('xorg-server' 'xorg-xinit' 'nvidia-settings' 'nvidia-dkms' 'ruby')
+source=('git+https://github.com/allenwq/nvidia-fan-control.git')
 md5sums=('SKIP')
 
 package() {
 	cd ${srcdir}/${pkgname}
-	install -D -m755 nvidia-fancontrol ${pkgdir}/opt/nvidia-fancontrol/nvidia-fancontrol
-	install -D -m755 nvidia-fancontrol-x ${pkgdir}/opt/nvidia-fancontrol/nvidia-fancontrol-x
-	install -D -m644 nvidia-fancontrol.default ${pkgdir}/etc/default/nvidia-fancontrol
-	install -m644 dfp-edid.bin ${pkgdir}/opt/nvidia-fancontrol/dfp-edid.bin
-	install -m644 xorg.conf ${pkgdir}/opt/nvidia-fancontrol/xorg.conf
+	mkdir -p ${pkgdir}/opt/${pkgname}
+	cp -a * ${pkgdir}/opt/${pkgname}
 }

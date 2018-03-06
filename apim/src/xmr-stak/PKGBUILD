@@ -7,8 +7,10 @@ pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak"
 license=('GPL')
-depends=('libmicrohttpd' 'opencl-amd' 'hwloc')
-makedepends=('cmake' 'cuda' 'opencl-headers' 'gcc6')
+depends=('libmicrohttpd' 'hwloc')
+makedepends=('cmake' 'opencl-amd' 'cuda' 'opencl-headers' 'gcc6')
+optdepends=('opencl-amd'
+            'opencl-nvidia')
 source=("git+https://github.com/fireice-uk/xmr-stak.git#commit=${_commit}")
 md5sums=('SKIP')
 _gitname=yaourt
@@ -16,7 +18,7 @@ _gitname=yaourt
 prepare() {
 	cd ${pkgname}
 	# modify your settings here
-	#sed 's@fDevDonationLevel = 2.0@fDevDonationLevel = 3.0@g' -i xmrstak/donate-level.hpp
+	sed 's@fDevDonationLevel = 2.0@fDevDonationLevel = 0@g' -i xmrstak/donate-level.hpp
 }
 
 build() {
