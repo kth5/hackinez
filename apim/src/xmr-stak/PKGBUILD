@@ -1,8 +1,8 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
-pkgver=2.2.0
+pkgver=2.3.0
 pkgrel=1
-_commit=2ae7260b90fe3dbe835ba2489519510f0e57d770
+_commit=a036cd81592e3b3de804ba88bb8f94729ab60b7d
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak"
@@ -18,7 +18,7 @@ _gitname=yaourt
 prepare() {
 	cd ${pkgname}
 	# modify your settings here
-	sed 's@fDevDonationLevel = 2.0@fDevDonationLevel = 0@g' -i xmrstak/donate-level.hpp
+	#sed 's@fDevDonationLevel = 2.0@fDevDonationLevel = 0@g' -i xmrstak/donate-level.hpp
 }
 
 build() {
