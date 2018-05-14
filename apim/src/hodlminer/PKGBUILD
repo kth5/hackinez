@@ -1,14 +1,14 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=hodlminer-wolf
-pkgver=r12.98ab9c7
+pkgver=r54.c306fe6
 pkgrel=1
-_commit=98ab9c7aca8a11c2d1e5b25e5388c0d2a5b0f749
-pkgdesc="Wolf's HOdl CPU miner"
+_commit=c306fe67766f23fe7a77947a84cac96e9911f887
+pkgdesc="Wolf's HOdl CPU miner with mods"
 arch=(x86_64)
-url="https://github.com/Optiminer/hodlminer-wolf"
+url="https://github.com/kth5/hodlminer-wolf"
 license=('GPL')
 depends=('openssl' 'curl')
-source=("git+https://github.com/Optiminer/hodlminer-wolf.git#commit=${_commit}")
+source=("git+https://github.com/kth5/hodlminer-wolf.git#commit=${_commit}")
 md5sums=('SKIP')
 
 pkgver() {
@@ -23,7 +23,7 @@ prepare() {
 
 build() {
 	cd ${pkgname}
-	./configure
+	./configure --with-curl=/usr
 	make
 }
 
