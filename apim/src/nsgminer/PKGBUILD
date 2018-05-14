@@ -1,6 +1,6 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=nsgminer
-pkgver=r5929.eb4da86c
+pkgver=r5933.fa56d4d2
 pkgrel=1
 pkgdesc="Neoscrypt miner for GPUs"
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
 makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
 options=('!emptydirs')
-_commit=eb4da86c0f2a7b2549afdcbf3eaa35e30af22e5f
+_commit=fa56d4d2b0ae5e11c79cb85977f31f0272443680
 source=("git+https://github.com/ghostlander/nsgminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
