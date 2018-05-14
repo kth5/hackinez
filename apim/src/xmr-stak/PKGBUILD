@@ -1,8 +1,8 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
-pkgver=2.3.0
+pkgver=2.4.3
 pkgrel=1
-_commit=a036cd81592e3b3de804ba88bb8f94729ab60b7d
+_commit=26a5d65f12b2f19a0a3ece39a2bc64718796367b
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak"
