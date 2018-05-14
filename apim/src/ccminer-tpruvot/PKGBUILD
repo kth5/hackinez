@@ -3,7 +3,7 @@
 # original AUR credits
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-tpruvot
-pkgver=r921.50781f0
+pkgver=r936.a81ab0f
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
@@ -12,7 +12,7 @@ license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia')
 makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
 options=('!emptydirs')
-_commit=50781f00ebaab95ad578c6c37a8f7f44019ac7a6
+_commit=a81ab0f7a557a12a21d716dd03537bc8633fd176
 source=("git+https://github.com/tpruvot/ccminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
