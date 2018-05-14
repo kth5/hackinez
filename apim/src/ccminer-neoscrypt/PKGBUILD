@@ -1,6 +1,6 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=ccminer-neoscrypt
-pkgver=r1397.c7ddb61
+pkgver=r1513.4c21db6
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia' 'gcc6-libs')
 makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2' 'gcc6')
 options=('!emptydirs')
-_commit=c7ddb61059eeea0ddacdad6228e5d5938fbfa1e8
+_commit=4c21db6aaac36a52a3a6c0749c807674ad70a2eb
 source=("git+https://github.com/KlausT/ccminer.git#commit=${_commit}")
 md5sums=('SKIP')
 
