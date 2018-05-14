@@ -3,7 +3,7 @@
 # original AUR credits
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-alexis78
-pkgver=r431.cb99006
+pkgver=r434.1496c7f
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
@@ -12,7 +12,7 @@ license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
 makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
 options=('!emptydirs')
-_commit=cb990068b97c1b4d226b91c16c6a0dfd5ef591ca
+_commit=1496c7f8bb406ec22d120b6565ba5b438dc815d1
 source=("git+https://github.com/alexis78/ccminer.git#commit=${_commit}"
 	ccminer-openssl-1.1-api.patch)
 md5sums=('SKIP'
@@ -25,7 +25,7 @@ pkgver() {
 
 prepare() {
 	cd ccminer
-	patch -Np1 -i ${srcdir}/ccminer-openssl-1.1-api.patch
+	#patch -Np1 -i ${srcdir}/ccminer-openssl-1.1-api.patch
 	autoreconf -fiv
 }
 
