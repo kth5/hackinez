@@ -1,6 +1,6 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=amdcovc
-pkgver=r30.20fe0c0
+pkgver=r59.589c09c
 pkgrel=1
 pkgdesc="Simple commandline program to control AMD Overdrive settings"
 arch=('x86_64')
@@ -8,7 +8,7 @@ url="https://github.com/matszpk/amdcovc"
 license=('GPL3')
 makedepends=('git' 'amd-adl-sdk')
 options=('!emptydirs')
-_commit=20fe0c08453cccf1a9d8479acabc799cb81f9b32 
+_commit=589c09cef00e8cc92258da2cd85089567e57735b
 source=("git+https://github.com/matszpk/amdcovc.git#commit=${_commit}")
 md5sums=('SKIP')
 

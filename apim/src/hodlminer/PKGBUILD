@@ -1,8 +1,8 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=hodlminer-wolf
-pkgver=r54.c306fe6
+pkgver=r57.c03f363
 pkgrel=1
-_commit=c306fe67766f23fe7a77947a84cac96e9911f887
+_commit=c03f363d2f59863fefe21d1b6a944dbbf93ea460
 pkgdesc="Wolf's HOdl CPU miner with mods"
 arch=(x86_64)
 url="https://github.com/kth5/hodlminer-wolf"
