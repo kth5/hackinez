@@ -1,14 +1,14 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
-pkgver=2.4.3
+pkgver=2.4.4
 pkgrel=1
-_commit=26a5d65f12b2f19a0a3ece39a2bc64718796367b
+_commit=c0ab1734332d6472225d8ac7394f6fcba71aabc9
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak"
 license=('GPL')
 depends=('libmicrohttpd' 'hwloc')
-makedepends=('cmake' 'opencl-amd' 'cuda' 'opencl-headers' 'gcc6')
+makedepends=('cmake' 'opencl-amd' 'opencl-headers' 'gcc6' 'cuda>=9.2' 'cuda<=9.3')
 optdepends=('opencl-amd'
             'opencl-nvidia')
 source=("git+https://github.com/fireice-uk/xmr-stak.git#commit=${_commit}")
