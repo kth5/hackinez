@@ -4,13 +4,13 @@
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-alexis78
 pkgver=r435.38e1cb0
-pkgrel=1
+pkgrel=2
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/alexis78/ccminer"
 license=('GPL3')
 depends=('curl' 'jansson' 'opencl-nvidia' 'openssl')
-makedepends=('git' 'autoconf' 'cuda>=9' 'cuda<10')
+makedepends=('git' 'autoconf' 'cuda>=9.2' 'cuda<9.3')
 options=('!emptydirs')
 _commit=38e1cb0f02ffee1146d83ef37280fbe7ef5f5471
 source=("git+https://github.com/alexis78/ccminer.git#commit=${_commit}")

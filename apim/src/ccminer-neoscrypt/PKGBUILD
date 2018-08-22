@@ -1,23 +1,16 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=ccminer-neoscrypt
-pkgver=r1528.7bdbfac
+pkgver=8.22
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/KlausT/ccminer"
 license=('GPL3')
-depends=('curl' 'jansson' 'opencl-nvidia' 'gcc6-libs')
-makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2' 'gcc6')
+depends=('curl' 'jansson' 'opencl-nvidia' 'gcc6-libs' 'cuda>=9.2' 'cuda<9.3')
+makedepends=('git' 'autoconf' 'gcc6')
 options=('!emptydirs')
-_commit=7bdbfac5014943a864dcfed386d37f4e25f26ded
-source=("git+https://github.com/KlausT/ccminer.git#commit=${_commit}")
+source=("git+https://github.com/KlausT/ccminer.git#tag=${pkgver}")
 md5sums=('SKIP')
-
-pkgver() {
-	cd ccminer 
-	
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
 
 prepare() {
 	cd ccminer
@@ -26,7 +19,7 @@ prepare() {
 
 build() {
 	cd ccminer
-	#CC=gcc-6 CXX=g++-6 \
+	CC=gcc-6 CXX=g++-6 \
 	CFLAGS="${CFLAGS} -fPIC" CXXFLAGS="${CXXFLAGS} -fPIC" \
 	./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --with-cuda=/opt/cuda
 	make

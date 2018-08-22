@@ -3,23 +3,17 @@
 # original AUR credits
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-cryptonight
-pkgver=r217.68623fa
+pkgver=3.05
 pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/KlausT/ccminer-cryptonight"
 license=('GPL3')
-depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0')
-makedepends=('git' 'autoconf' 'cuda>=9.1' 'cuda<9.2')
+depends=('curl' 'jansson' 'opencl-nvidia' 'openssl-1.0' 'cuda>=9.2' 'cuda<9.3')
+makedepends=('git' 'autoconf')
 options=('!emptydirs')
-_commit=68623faae443f17431d2dfac0372b08f40eda723
-source=("git+https://github.com/KlausT/ccminer-cryptonight.git#commit=${_commit}")
+source=("git+https://github.com/KlausT/ccminer-cryptonight.git#tag=${pkgver}")
 md5sums=('SKIP')
-
-pkgver() {
-	cd ${pkgname}
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
 
 prepare() {
 	cd ${pkgname}
