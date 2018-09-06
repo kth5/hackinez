@@ -1,8 +1,8 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=hodlminer-wolf
-pkgver=r57.c03f363
+pkgver=r96.9155979
 pkgrel=1
-_commit=c03f363d2f59863fefe21d1b6a944dbbf93ea460
+_commit=91559797c67e507fff9c756fe78b34f52f2fa184
 pkgdesc="Wolf's HOdl CPU miner with mods"
 arch=(x86_64)
 url="https://github.com/kth5/hodlminer-wolf"
@@ -23,11 +23,33 @@ prepare() {
 
 build() {
 	cd ${pkgname}
-	./configure --with-curl=/usr
+
+	CFLAGS="${CFLAGS} -maes -msse4.2" \
+	CXXFLAGS="${CXXFLAGS} -maes -msse4.2" \
+	./configure --with-curl=/usr --with-crypto=/usr
 	make
+	mv hodlminer hodlminer-wolf
+
+	make clean
+
+        CFLAGS="${CFLAGS} -mavx -maes -msse4.2" \
+        CXXFLAGS="${CXXFLAGS} -mavx -maes -msse4.2" \
+        ./configure --with-curl=/usr --with-crypto=/usr
+        make
+        mv hodlminer hodlminer-wolf-avx
+
+	make clean
+
+        CFLAGS="${CFLAGS} -mavx2 -maes -msse4.2" \
+        CXXFLAGS="${CXXFLAGS} -mavx2 -maes -msse4.2" \
+        ./configure --with-curl=/usr --with-crypto=/usr
+        make
+        mv hodlminer hodlminer-wolf-avx2
 }
 
 package() {
 	cd ${pkgname}
-	install -D -m755 hodlminer ${pkgdir}/usr/bin/hodlminer-wolf
+	install -D -m755 hodlminer-wolf ${pkgdir}/usr/bin/hodlminer-wolf
+	install -D -m755 hodlminer-wolf-avx ${pkgdir}/usr/bin/hodlminer-wolf-avx
+	install -D -m755 hodlminer-wolf-avx2 ${pkgdir}/usr/bin/hodlminer-wolf-avx2
 }

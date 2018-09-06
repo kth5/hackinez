@@ -1,0 +1,31 @@
+# Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
+pkgname=avermore-miner
+pkgver=1.4.1
+pkgrel=1
+pkgdesc="Multiple algorythim miner for Nvidia GPUs"
+arch=('x86_64')
+url="https://github.com/KlausT/avermore-miner"
+license=('GPL3')
+depends=('curl')
+makedepends=('git' 'autoconf' 'opencl-headers')
+options=('!emptydirs')
+source=("git+https://github.com/brian112358/avermore-miner.git#commit=v${pkgver}")
+md5sums=('SKIP')
+
+prepare() {
+	cd ${pkgname}
+	git submodule init
+	git submodule update
+	autoreconf -fiv
+}
+
+build() {
+	cd ${pkgname}
+	./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib
+	make
+}
+
+package() {
+	cd ${pkgname}
+	install -m755 -D sgminer ${pkgdir}/usr/bin/${pkgname}
+}
