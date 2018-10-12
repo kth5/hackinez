@@ -4,13 +4,13 @@
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-tpruvot
 pkgver=2.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/tpruvot/ccminer"
 license=('GPL3')
-depends=('curl' 'jansson' 'opencl-nvidia')
-makedepends=('git' 'autoconf' 'cuda>=9.2' 'cuda<9.3')
+depends=('curl' 'jansson' 'opencl-nvidia' 'gcc7-libs')
+makedepends=('git' 'autoconf' 'gcc7' 'cuda>=10' 'cuda<11')
 options=('!emptydirs')
 source=("git+https://github.com/tpruvot/ccminer.git#tag=${pkgver}-tpruvot")
 md5sums=('SKIP')
@@ -23,6 +23,7 @@ prepare() {
 build() {
 	cd ccminer
         PATH=/opt/cuda/bin:$PATH
+	CC=gcc-7 CXX=g++-7 \
 	CFLAGS="-O3 -std=c++11" \
         ./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --with-cuda=/opt/cuda
 	make

@@ -1,12 +1,12 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=excavator
 pkgver=1.5.11a
-pkgrel=1
+pkgrel=2
 pkgdesc="Nicehash's multi coin miner"
 arch=(x86_64)
 url="https://github.com/nicehash/excavator"
 license=('CUSTOM')
-depends=('cuda>=9.2' 'cuda<9.3')
+depends=('cuda>=10' 'cuda<11')
 backup=('opt/excavator/etc/default_command_file.json')
 source=("https://github.com/nicehash/excavator/releases/download/v${pkgver}/excavator_${pkgver}_amd64.deb")
 md5sums=('d3cf775768f78911dbb59d261f361739')
