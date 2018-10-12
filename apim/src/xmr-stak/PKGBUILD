@@ -1,17 +1,16 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
-pkgver=2.4.4
+pkgver=2.5.0
 pkgrel=1
-_commit=c0ab1734332d6472225d8ac7394f6fcba71aabc9
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)
 url="https://github.com/fireice-uk/xmr-stak"
 license=('GPL')
 depends=('libmicrohttpd' 'hwloc')
-makedepends=('cmake' 'opencl-amd' 'opencl-headers' 'gcc6' 'cuda>=9.2' 'cuda<=9.3')
+makedepends=('gcc7' 'cmake' 'opencl-amd' 'opencl-headers' 'cuda>=10' 'cuda<=11')
 optdepends=('opencl-amd'
             'opencl-nvidia')
-source=("git+https://github.com/fireice-uk/xmr-stak.git#commit=${_commit}")
+source=("git+https://github.com/fireice-uk/xmr-stak.git#tag=${_pkgver}")
 md5sums=('SKIP')
 _gitname=yaourt
 
@@ -23,7 +22,7 @@ prepare() {
 
 build() {
 	cd ${pkgname}
-	CC=gcc-6 CXX=g++-6 \
+	CC=gcc-7 CXX=g++-7 \
 	cmake .\
 		-DXMR-STAK_COMPILE=generic \
 		-DOpenCL_ENABLE=ON -DCUDA_ENABLE=ON
@@ -32,8 +31,8 @@ build() {
 
 package() {
 	cd ${pkgname}
+	make install
 	install -D -m755 bin/xmr-stak ${pkgdir}/usr/bin/xmr-stak
-	install -D -m644 xmrstak/config.tpl ${pkgdir}/usr/share/${pkgname}/config.txt.example
-	install -D -m755 bin/libxmrstak_cuda_backend.so ${pkgdir}/usr/lib/libxmrstak_cuda_backend.so
-	install -m755 bin/libxmrstak_opencl_backend.so ${pkgdir}/usr/lib/libxmrstak_opencl_backend.so
+	install -D -m755 bin/libxmrstak_opencl_backend.so ${pkgdir}/usr/lib/libxmrstak_opencl_backend.so
+	install -D -m755 bin/libxmrstak_cuda_backend.so ${pkgdir}/usr/lib/libxmrstak_cuda_backend_cuda10_0.so
 }
