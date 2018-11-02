@@ -1,6 +1,6 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com> 
 pkgname=xmr-stak
-pkgver=2.5.0
+pkgver=2.5.2
 pkgrel=1
 pkgdesc="Cryptonight All In One miner"
 arch=(x86_64)

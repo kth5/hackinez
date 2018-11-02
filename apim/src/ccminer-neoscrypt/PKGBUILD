@@ -1,7 +1,7 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=ccminer-neoscrypt
-pkgver=8.22
-pkgrel=2
+pkgver=8.23
+pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/KlausT/ccminer"

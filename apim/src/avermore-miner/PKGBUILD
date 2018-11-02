@@ -1,15 +1,15 @@
 # Maintainer: Alexander Baldeck <alex.bldck@gmail.com>
 pkgname=avermore-miner
 pkgver=1.4.1
-pkgrel=1
-pkgdesc="Multiple algorythim miner for Nvidia GPUs"
+pkgrel=2
+pkgdesc="Multiple algorythim miner for AMD GPUs"
 arch=('x86_64')
-url="https://github.com/KlausT/avermore-miner"
+url="https://github.com/brian112358/avermore-miner"
 license=('GPL3')
 depends=('curl')
 makedepends=('git' 'autoconf' 'opencl-headers')
 options=('!emptydirs')
-source=("git+https://github.com/brian112358/avermore-miner.git#commit=v${pkgver}")
+source=("git+https://github.com/brian112358/avermore-miner.git#tag=v${pkgver}")
 md5sums=('SKIP')
 
 prepare() {

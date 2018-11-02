@@ -3,8 +3,8 @@
 # original AUR credits
 # AUR Maintainer: Omar Pakker <omar.pakker@oracle.com>
 pkgname=ccminer-cryptonight
-pkgver=3.05
-pkgrel=2
+pkgver=3.06
+pkgrel=1
 pkgdesc="Multiple algorythim miner for Nvidia GPUs"
 arch=('x86_64')
 url="https://github.com/KlausT/ccminer-cryptonight"
